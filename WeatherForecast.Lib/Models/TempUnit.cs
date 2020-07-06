@@ -4,10 +4,10 @@ using System.Text;
 
 namespace WeatherForecast.Lib.Models
 {
-    public class Unit
+    public class TempUnit
     {
         public double Value { get; set; }
-        public string UnitName { get; set; }
+        public string Unit { get; set; }
         public string UnitType { get; set; }
     }
 }

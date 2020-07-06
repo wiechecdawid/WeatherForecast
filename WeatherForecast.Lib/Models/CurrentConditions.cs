@@ -6,8 +6,9 @@ namespace WeatherForecast.Lib.Models
 {
     public class CurrentConditions
     {
-        public DateTime LocalObservationTime { get; set; }
+        public DateTime LocalObservationDateTime { get; set; }
         public int EpochTime { get; set; }
+        public string WeatherText { get; set; }
         public string WeatherIcon { get; set; }
         public bool HasPrecitipation { get; set; }
         public object PrecipitationType { get; set; }

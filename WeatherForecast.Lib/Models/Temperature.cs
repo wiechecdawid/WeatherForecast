@@ -6,7 +6,7 @@ namespace WeatherForecast.Lib.Models
 {
     public class Temperature
     {
-        public Unit Metric { get; set; }
-        public Unit Imperial { get; set; }
+        public TempUnit Metric { get; set; }
+        public TempUnit Imperial { get; set; }
     }
 }
