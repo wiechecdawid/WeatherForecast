@@ -7,6 +7,7 @@ using WeatherForecast.Lib.Models;
 using Newtonsoft.Json;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Web;
 
 namespace WeatherForecast.Lib.Helpers
 {
@@ -32,7 +33,7 @@ namespace WeatherForecast.Lib.Helpers
 
             string url = BaseUrl + string.Format(AutocompleteUrl, ApiKey, query, language);
 
-            using(HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 var response = await client.GetAsync(url);
                 string json = await response.Content.ReadAsStringAsync();

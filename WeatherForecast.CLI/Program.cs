@@ -15,6 +15,7 @@ namespace WeatherForecast.CLI
         {
             Console.WriteLine("Podaj nazwę miejscowości: "+Environment.NewLine);
             string query = Console.ReadLine();
+
             int resultCounter = 1;
 
             var cities = new List<City>(await GetWeatherHelper.GetCitiesAsync(query, _language));
