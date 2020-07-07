@@ -20,7 +20,6 @@ namespace WeatherForecast.Lib.Helpers
         public const string AutocompleteUrl = "locations/v1/cities/autocomplete?apikey={0}&q={1}&language={2}";
         public const string currentConditionsUrl = "currentconditions/v1/{0}?apikey={1}&language={2}";
 
-
         /// <summary>
         /// Provides a list of cities based on user's input.
         /// </summary>
