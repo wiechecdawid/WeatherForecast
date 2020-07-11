@@ -21,6 +21,7 @@ namespace WeatherForecast.Lib.Helpers
         public const string AutocompleteUrl = "locations/v1/cities/autocomplete?apikey={0}&q={1}&language={2}";
         public const string currentConditionsUrl = "currentconditions/v1/{0}?apikey={1}&language={2}";
         public const string forecast12hUrl = "forecasts/v1/hourly/12hour/{0}?apikey={1}&language={2}&metric=true";
+        public const string forecast5dUrl = "forecasts/v1/daily/5day/{0}?apikey={1}&language={2}&metric=true";
 
         /// <summary>
         /// Provides a list of cities based on user's input.
@@ -88,6 +89,21 @@ namespace WeatherForecast.Lib.Helpers
             return conditions;
         }
 
-        
+        public async Task<List<ForecastedConditions>> Get5DaysForecast(string cityKey, string language)
+        {
+            var conditions = new List<ForecastedConditions>();
+
+            string url = BaseUrl + string.Format(forecast12hUrl, cityKey, ApiKey, language);
+
+            using(HttpClient client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+
+                string json = await response.Content.ReadAsStringAsync();
+
+                conditions = JsonConvert.DeserializeObject<List<ForecastedConditions>>(json);
+            }
+            return conditions;
+        }
     }
 }
