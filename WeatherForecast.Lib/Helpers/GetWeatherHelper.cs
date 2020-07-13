@@ -76,7 +76,7 @@ namespace WeatherForecast.Lib.Helpers
         {
             var conditions = new List<ForecastedConditions>();
 
-            string url = BaseUrl + string.Format(forecast12hUrl, cityKey, ApiKey, language);
+            string url = BaseUrl + string.Format(forecast5dUrl, cityKey, ApiKey, language);
 
             using(HttpClient client = new HttpClient())
             {
@@ -89,9 +89,9 @@ namespace WeatherForecast.Lib.Helpers
             return conditions;
         }
 
-        public async Task<List<ForecastedConditions>> Get5DaysForecast(string cityKey, string language)
+        public async Task<FiveDaysForecast> Get5DaysForecast(string cityKey, string language)
         {
-            var conditions = new List<ForecastedConditions>();
+            var conditions = new FiveDaysForecast();
 
             string url = BaseUrl + string.Format(forecast12hUrl, cityKey, ApiKey, language);
 
@@ -101,7 +101,7 @@ namespace WeatherForecast.Lib.Helpers
 
                 string json = await response.Content.ReadAsStringAsync();
 
-                conditions = JsonConvert.DeserializeObject<List<ForecastedConditions>>(json);
+                conditions = JsonConvert.DeserializeObject<FiveDaysForecast>(json);
             }
             return conditions;
         }
