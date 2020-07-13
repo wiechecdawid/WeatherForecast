@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Text;
 using WeatherForecast.Lib.Models;
 using Newtonsoft.Json;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
 
 namespace WeatherForecast.Lib.Helpers
 {
@@ -89,6 +85,9 @@ namespace WeatherForecast.Lib.Helpers
             return conditions;
         }
 
+        /// <summary>
+        /// Returns forecast for the next five days
+        /// </summary>
         public async Task<FiveDaysForecast> Get5DaysForecast(string cityKey, string language)
         {
             var conditions = new FiveDaysForecast();
