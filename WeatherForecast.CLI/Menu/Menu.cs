@@ -60,6 +60,7 @@ public sealed class Menu
                             await ShowLatestForecastAsync();
                             break;
                         case Options.Quit:
+                            Console.WriteLine("Dziękujemy za skorzystanie z aplikacji. Zapraszamy ponownie!");
                             Environment.Exit(0);
                             break;
                     }
@@ -125,7 +126,7 @@ public sealed class Menu
 
             foreach(var f in forecast)
             {
-                Console.WriteLine($"{City.LocalizedName}, {f.DateTime.Hour}:{f.DateTime.Minute}" + Environment.NewLine +
+                Console.WriteLine($"{City.LocalizedName}, {f.DateTime.Hour:D2}:{f.DateTime.Minute:D2}" + Environment.NewLine +
                                     $"{f.IconPhrase}, {f.Temperature.Value}°{f.Temperature.Unit}.");
                 if(f.HasPrecipitation)
                 {

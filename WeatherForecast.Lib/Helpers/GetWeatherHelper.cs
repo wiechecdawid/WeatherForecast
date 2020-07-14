@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using WeatherForecast.Lib.Models;
 using Newtonsoft.Json;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace WeatherForecast.Lib.Helpers
 {
@@ -72,7 +73,7 @@ namespace WeatherForecast.Lib.Helpers
         {
             var conditions = new List<ForecastedConditions>();
 
-            string url = BaseUrl + string.Format(forecast5dUrl, cityKey, ApiKey, language);
+            string url = BaseUrl + string.Format(forecast12hUrl, cityKey, ApiKey, language);
 
             using(HttpClient client = new HttpClient())
             {
@@ -92,7 +93,7 @@ namespace WeatherForecast.Lib.Helpers
         {
             var conditions = new FiveDaysForecast();
 
-            string url = BaseUrl + string.Format(forecast12hUrl, cityKey, ApiKey, language);
+            string url = BaseUrl + string.Format(forecast5dUrl, cityKey, ApiKey, language);
 
             using(HttpClient client = new HttpClient())
             {
