@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Threading.Tasks;
-using WeatherForecast.Lib.Helpers;
-using WeatherForecast.Lib.Models;
+﻿using System.Threading.Tasks;
 
 namespace WeatherForecast.CLI
 {

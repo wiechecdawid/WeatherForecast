@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using WeatherForecast.Lib.Models;
 using Newtonsoft.Json;
 using System.Linq;
-using Newtonsoft.Json.Linq;
 
 namespace WeatherForecast.Lib.Helpers
 {
