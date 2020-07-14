@@ -70,7 +70,7 @@ namespace WeatherForecast.Lib.Helpers
         /// </summary>
         public static async Task<List<ForecastedConditions>> Get12hrsForecast(string cityKey, string language)
         {
-            var conditions = new List<ForecastedConditions>;
+            var conditions = new List<ForecastedConditions>();
 
             string url = BaseUrl + string.Format(forecast5dUrl, cityKey, ApiKey, language);
 
