@@ -69,6 +69,9 @@ namespace WeatherForecast.Lib.Helpers
         /// <summary>
         /// Returns forecast for the next 12 hours
         /// </summary>
+        /// <param name="cityKey">Key used to identify selected city</param>
+        /// <param name="language">Selected language</param>
+        /// <returns>List of weather conditions for each of next 12 hours</returns>
         public static async Task<List<ForecastedConditions>> Get12hrsForecast(string cityKey, string language)
         {
             var conditions = new List<ForecastedConditions>();
@@ -89,6 +92,9 @@ namespace WeatherForecast.Lib.Helpers
         /// <summary>
         /// Returns forecast for the next five days
         /// </summary>
+        /// <param name="cityKey">Key used to identify selected city</param>
+        /// <param name="language">Selected language</param>
+        /// <returns>A FiveDaysForecast object containing headline and list of forecasts for the next five days</returns>
         public static async Task<FiveDaysForecast> Get5DaysForecast(string cityKey, string language)
         {
             var conditions = new FiveDaysForecast();

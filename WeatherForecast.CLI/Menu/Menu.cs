@@ -32,6 +32,9 @@ public sealed class Menu
 
     #region Methods
 
+    /// <summary>
+    /// A void method responsible for displaying and navigation througout menu options.
+    ///</summary>
     public async Task NavigateAsync()
     {
         while(true)
@@ -108,12 +111,15 @@ public sealed class Menu
             $"({currentConditions.Temperature.Imperial.Value}°{currentConditions.Temperature.Imperial.Unit})" + Environment.NewLine);
     }
 
+    /// <summary>
+    /// Displays forecast for either next 12 hours or the next five days.
+    /// </summary>
     public async Task ShowLatestForecastAsync()
     {
         if(City == null)
             City = await SetCityAsync();
 
-        Console.WriteLine("Wybierz preferowany rodzaj prognozy:" + Environment.NewLine +
+        Console.WriteLine($"Prognoza dla: {City.LocalizedName}. Wybierz preferowany rodzaj prognozy:" + Environment.NewLine +
                             "1. Prognoza godzinowa (12 godzin)" + Environment.NewLine +
                             "2. Prognoza dniowa (5 dni)" + Environment.NewLine);
 
@@ -137,9 +143,22 @@ public sealed class Menu
         }
         else if(selectedNumber == 2)
         {
+            var forecast = await GetWeatherHelper.Get5DaysForecast(City.Key, Language);
 
+            Console.WriteLine($"{City.LocalizedName}, {forecast.Headline.EffectiveDate:ddd d MMM yyyy}" + Environment.NewLine +
+                                        $"{forecast.Headline.Text}" + Environment.NewLine);
+            foreach(var f in forecast.DailyForecasts)
+            {
+                Console.WriteLine($"{f.Date:dddd}:" + Environment.NewLine +
+                                    $"W ciągu dnia {f.Day.IconPhrase}, a w nocy {f.Night.IconPhrase}. Temperatura od {f.Temperature.Minimum.Value}°C do {f.Temperature.Maximum.Value}°C."
+                                    + Environment.NewLine);
+            }                                        
         }
         else  Console.WriteLine("Nie wybrano żadnej opcji - powrót do menu głównego" + Environment.NewLine);
+
+        Console.WriteLine("Naciśnij dowolny klawisz, by wrócić do menu.");
+        Console.ReadKey();
+        System.Console.WriteLine(Environment.NewLine);
     }
 
     #endregion
