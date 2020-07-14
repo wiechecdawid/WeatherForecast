@@ -68,9 +68,9 @@ namespace WeatherForecast.Lib.Helpers
         /// <summary>
         /// Returns forecast for the next 12 hours
         /// </summary>
-        public async Task<List<ForecastedConditions>> Get12hrsForecast(string cityKey, string language)
+        public static async Task<List<ForecastedConditions>> Get12hrsForecast(string cityKey, string language)
         {
-            var conditions = new List<ForecastedConditions>();
+            var conditions = new List<ForecastedConditions>;
 
             string url = BaseUrl + string.Format(forecast5dUrl, cityKey, ApiKey, language);
 
@@ -88,7 +88,7 @@ namespace WeatherForecast.Lib.Helpers
         /// <summary>
         /// Returns forecast for the next five days
         /// </summary>
-        public async Task<FiveDaysForecast> Get5DaysForecast(string cityKey, string language)
+        public static async Task<FiveDaysForecast> Get5DaysForecast(string cityKey, string language)
         {
             var conditions = new FiveDaysForecast();
 

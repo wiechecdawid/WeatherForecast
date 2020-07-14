@@ -12,4 +12,7 @@ public class ForecastedConditions
     public string PrecipitationIntensity { get; set; }
     public bool IsDayLight { get; set; }
     public TempUnit Temperature { get; set; }
+    public int PrecipitationProbability { get; set; }
+    public string MobileLink { get; set; }
+    public string Link { get; set; }
 }
